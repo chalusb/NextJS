@@ -1,101 +1,92 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Header from '@/components/Header'
+import FloatingButtons from '@/components/FloatingButtons'
+import WhatsAppButton from '@/components/WhatsAppButton'
+import QuoteForm from '@/components/QuoteForm'
+import PromoCard from '@/components/PromoCard'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="relative min-h-screen">
+      {/* Hero Video/Image Section */}
+      <div className="relative h-screen">
+        <div className="absolute inset-0">
+          <Image
+            src="/placeholder.svg?height=1080&width=1920&text=Taos"
+            alt="Volkswagen Taos"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+        <Header />
+        
+        <div className="relative z-10 h-full flex flex-col justify-center px-8">
+          <div className="max-w-xl">
+            <h1 className="text-6xl font-bold text-white mb-4">
+              Nuevo Taos
+            </h1>
+            <h2 className="text-4xl font-light text-white mb-2">
+              El plan es disfrutar
+            </h2>
+            <p className="text-2xl text-white/90">
+              Más que un S
+            </p>
+          </div>
+        </div>
+
+        {/* Video Controls */}
+        <div className="absolute bottom-0 left-0 right-0 flex items-center gap-4 p-4 bg-gradient-to-t from-black/50 to-transparent">
+          <button className="text-white">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
+          <div className="text-white text-sm">0:09 / 0:11</div>
+        </div>
+      </div>
+
+      <FloatingButtons />
+      <WhatsAppButton />
+
+      <QuoteForm />
+
+      <div className="container mx-auto px-4">
+
+        <h2 className="text-4xl font-bold text-center my-16">
+          Descubre todas las{" "}
+          <span className="text-[#001E50]">promociones</span>
+        </h2>
+
+        <PromoCard
+          title="Virtus"
+          image="/assets/img/v1.jpg"
+          price="295,300"
+          monthly="3,399"
+          commission="0% comisión por apertura"
+          insurance="Seguro GRATIS"
+        />        
+
+        <PromoCard
+          title="Volkswagen Polo 2024"
+          image="/assets/img/v2.jpg"
+          price="279,570"
+          monthly="2,799"
+          commission="0% comisión por apertura"
+          insurance="Seguro promocional"
+        />
+
+        <PromoCard
+          title="Saveiro Robust 2025"
+          image="/assets/img/v3.jpg"
+          price="279,570"
+          bonus="9,280"
+          commission="0% comisión por apertura"
+        />
+      </div>
+    </main>
+  )
 }
+
