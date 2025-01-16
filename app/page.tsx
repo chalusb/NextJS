@@ -1,4 +1,4 @@
-import Image from 'next/image'
+//import Image from 'next/image'
 
 import FloatingButtons from '@/components/FloatingButtons'
 import WhatsAppButton from '@/components/WhatsAppButton'
