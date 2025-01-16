@@ -12,11 +12,11 @@ export default function Header() {
         
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Image 
-            src="/placeholder.svg?height=40&width=40&text=VW"
+            src="/assets/img/Volkswagen_logo.png"
             alt="Volkswagen Logo"
             width={40}
             height={40}
-            className="invert"
+            // className="invert"
           />
         </div>
 
