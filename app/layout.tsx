@@ -24,11 +24,11 @@ export default function RootLayout({
         {children}
         <Script
           src="/digitaldata.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         /> 
         <Script
           src="https://assets.adobetm.com/248d63c2f6b/bec206858ddf/launch-64309b53b8ca.min.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />  
         <Footer />            
       </body>
