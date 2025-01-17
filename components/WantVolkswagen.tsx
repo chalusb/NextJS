@@ -11,9 +11,10 @@ export default function WantVolkswagen() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="relative h-[400px] lg:h-[600px]">
             <Image
-              src="/placeholder.svg?height=600&width=400&text=Man"
+              src="/assets/img/banner-2.jpg"
               alt="¿Qué esperas?"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover rounded-lg"
             />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
@@ -28,9 +29,10 @@ export default function WantVolkswagen() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="relative h-[250px]">
                 <Image
-                  src="/placeholder.svg?height=250&width=400&text=Couple"
+                  src="/assets/img/banner-3.jpg"
                   alt="El modelo que quieres"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover rounded-lg"
                 />
               </div>
@@ -45,9 +47,10 @@ export default function WantVolkswagen() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="relative h-[250px]">
                 <Image
-                  src="/placeholder.svg?height=250&width=400&text=People+with+Car"
+                  src="/assets/img/banner-4.jpg"
                   alt="Somos tu compañero de viaje"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover rounded-lg"
                 />
               </div>
