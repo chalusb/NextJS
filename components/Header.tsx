@@ -10,7 +10,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useData } from "@/context/DataContext";
 
 const navigation = [
-  { name: "Compra", href: "/" },
+  { name: "Compra 1.0", href: "/" },
   { name: "Propietarios", items: true, href: "/" },
   { name: "Tecnologías", href: "/" },
   { name: "Financiamiento", href: "/financiamiento/" },
