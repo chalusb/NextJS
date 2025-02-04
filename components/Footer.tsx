@@ -1,5 +1,10 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const footerLinks = {
   vehiculos: {
@@ -82,12 +87,23 @@ const footerLinks = {
 }
 
 export default function Footer() {
+  const [openSections, setOpenSections] = useState<string[]>([])
+
+  const toggleSection = (section: string) => {
+    setOpenSections(prev => 
+      prev.includes(section) 
+        ? prev.filter(s => s !== section)
+        : [...prev, section]
+    )
+  }
+
   return (
     <footer className="w-full">
       {/* Main Footer */}
-      <div className=" text-white w-full">
+      <div className="text-white w-full">
         <div className="max-w-[1440px] bg-[#242424] mx-auto px-4 md:px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          {/* Desktop Version */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {Object.values(footerLinks).map((section) => (
               <div key={section.title}>
                 <h3 className="text-lg font-medium mb-4">{section.title}</h3>
@@ -103,29 +119,64 @@ export default function Footer() {
               </div>
             ))}
           </div>
+
+          {/* Mobile Version with Collapsible Sections */}
+          <div className="md:hidden space-y-2">
+            {Object.entries(footerLinks).map(([key, section]) => (
+              <div key={key} className="border-b border-gray-700">
+                <button
+                  className="flex items-center justify-between w-full py-4"
+                  onClick={() => toggleSection(key)}
+                >
+                  <h3 className="text-lg font-medium">{section.title}</h3>
+                  <ChevronDown 
+                    className={cn(
+                      "w-5 h-5 transition-transform",
+                      openSections.includes(key) && "rotate-180"
+                    )}
+                  />
+                </button>
+                {openSections.includes(key) && (
+                  <ul className="space-y-2 pb-4">
+                    {section.links.map((link) => (
+                      <li key={link.name}>
+                        <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm block py-1">
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Social Media Bar */}
-      <div className="w-full">
-        <div className="max-w-[1440px] bg-[#1a3644] py-4  mx-auto px-4 md:px-6 flex justify-between items-center">
-          <div className="flex items-center gap-4">
+      <div className="w-full ">
+        <div className="max-w-[1440px] bg-[#1a3644] py-4 mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* Texto y redes sociales */}
+          <div className="flex flex-col md:flex-row items-center gap-4">
             <span className="text-white text-sm">Síguenos en:</span>
-            <div className="flex gap-3">
-              <Image src="/assets/img/redes (6).png" alt="Facebook" width={40} height={40} />
-              <Image src="/assets/img/redes (7).png" alt="Twitter" width={40} height={40} />
-              <Image src="/assets/img/redes (2).png" alt="YouTube" width={40} height={40} />
-              <Image src="/assets/img/redes (5).png" alt="Instagram" width={40} height={40} />
-              <Image src="/assets/img/redes (3).png" alt="Ford Blog" width={40} height={40} />
-              <Image src="/assets/img/redes (4).png" alt="Spotify" width={40} height={40} />
-              <Image src="/assets/img/redes (1).png" alt="TikTok" width={40} height={40} />
+            <div className="flex flex-wrap gap-3 justify-center">
+              <Image src="/assets/img/redes (6).png" alt="Facebook" width={30} height={30} />
+              <Image src="/assets/img/redes (7).png" alt="Twitter" width={30} height={30} />
+              <Image src="/assets/img/redes (2).png" alt="YouTube" width={30} height={30} />
+              <Image src="/assets/img/redes (5).png" alt="Instagram" width={30} height={30} />
+              <Image src="/assets/img/redes (3).png" alt="Ford Blog" width={30} height={30} />
+              <Image src="/assets/img/redes (4).png" alt="Spotify" width={30} height={30} />
+              <Image src="/assets/img/redes (1).png" alt="TikTok" width={30} height={30} />
             </div>
           </div>
+
+          {/* Comentarios link  */}
           <Link href="/comentarios" className="text-white text-sm hover:text-gray-200">
             Comentarios
           </Link>
         </div>
       </div>
+
 
       {/* Copyright Bar */}
       <div className="bg-white py-12 w-full">
@@ -144,7 +195,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <Image src="/assets/img/fmx-logo-header.png" alt="Ford Logo" width={190} height={50} className=" w-auto" />
+          <Image src="/assets/img/fmx-logo-header.png" alt="Ford Logo" width={80} height={25} />
         </div>
       </div>
     </footer>
