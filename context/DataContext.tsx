@@ -28,7 +28,7 @@ export function useData() {
 export function DataProvider({ children }: { children: React.ReactNode }) {
   const { data, error, isLoading } = useQuery({
     queryKey: ["allData"],
-    queryFn: DISABLE_API ? async () => null : getAllData,
+    queryFn: true ? async () => null : getAllData,
     staleTime: 5000, 
     refetchInterval: 5000, 
     // staleTime: 1000 * 60 * 60, //  1 hora (60 minutos)
